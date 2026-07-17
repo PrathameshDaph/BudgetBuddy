@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BudgetBuddy – Student Daily Expense Tracker & Budget Analyser</title>
+  <meta name="description"
+    content="BudgetBuddy helps students track daily expenses, analyse spending habits, and manage budgets with ease. Your smart personal finance companion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       FIXED NAVIGATION BAR
+  ─────────────────────────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" id="nav-logo" aria-label="BudgetBuddy Home">
+        <span class="logo-icon">💸</span>
+        <span class="logo-text">Budget<span class="logo-accent">Buddy</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#hero" class="nav-link active" id="link-hero" data-section="hero">Home</a></li>
+        <li><a href="#dashboard" class="nav-link" id="link-dashboard" data-section="dashboard">Dashboard</a></li>
+        <li><a href="#tracker" class="nav-link" id="link-tracker" data-section="tracker">Tracker</a></li>
+        <li><a href="#analytics" class="nav-link" id="link-analytics" data-section="analytics">Analytics</a></li>
+        <li><a href="#tips" class="nav-link" id="link-tips" data-section="tips">Tips</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="nav-actions">
+        <button class="btn-cta" id="btn-get-started" aria-label="Get Started for free">Get Started Free</button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="ham-line" id="ham-line-1"></span>
+          <span class="ham-line" id="ham-line-2"></span>
+          <span class="ham-line" id="ham-line-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-links" role="list">
+        <li><a href="#hero" class="mobile-link" id="m-link-hero" onclick="closeMobileMenu()">🏠 Home</a></li>
+        <li><a href="#dashboard" class="mobile-link" id="m-link-dashboard" onclick="closeMobileMenu()">📊 Dashboard</a>
+        </li>
+        <li><a href="#tracker" class="mobile-link" id="m-link-tracker" onclick="closeMobileMenu()">📋 Tracker</a></li>
+        <li><a href="#analytics" class="mobile-link" id="m-link-analytics" onclick="closeMobileMenu()">📈 Analytics</a>
+        </li>
+        <li><a href="#tips" class="mobile-link" id="m-link-tips" onclick="closeMobileMenu()">💡 Tips</a></li>
+      </ul>
+      <button class="mobile-cta" id="mobile-cta-btn" onclick="closeMobileMenu()">Get Started Free →</button>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </nav>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       HERO SECTION
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section hero-section" id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Free for students · No credit card needed</span>
+      </div>
+      <h1 id="hero-heading" class="hero-title">
+        Master Your <span class="gradient-text">Student Budget</span><br />
+        One Day at a Time
+      </h1>
+      <p class="hero-subtitle">
+        Track daily expenses, visualise where your money goes, and build smart saving habits — all in one beautiful
+        dashboard.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="hero-cta-primary" aria-label="Start tracking expenses now">Start Tracking Now
+          →</button>
+        <button class="btn-ghost" id="hero-cta-demo" aria-label="View live demo">View Demo</button>
+      </div>
+      <div class="hero-stats" aria-label="Key statistics">
+        <div class="stat-card" id="stat-1">
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card" id="stat-2">
+          <span class="stat-number">₹2.4M</span>
+          <span class="stat-label">Saved This Month</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card" id="stat-3">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       DASHBOARD SECTION
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section dashboard-section" id="dashboard" aria-labelledby="dashboard-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">📊 Dashboard</div>
+        <h2 id="dashboard-heading" class="section-title">Your Financial Overview</h2>
+        <p class="section-sub">See every rupee accounted for. Real-time insights into income, spending, and savings.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Balance Card -->
+        <div class="dash-card balance-card" id="balance-card" role="article" aria-label="Total Balance">
+          <div class="dash-card-label">Total Balance</div>
+          <div class="dash-card-value" id="balance-value">₹12,450</div>
+          <div class="dash-trend positive" aria-label="12% increase">↑ 12% this week</div>
+          <div class="balance-bar-wrap" aria-hidden="true">
+            <div class="balance-bar" id="balance-bar"></div>
+          </div>
+        </div>
+
+        <!-- Income Card -->
+        <div class="dash-card income-card" id="income-card" role="article" aria-label="Monthly Income">
+          <div class="dash-card-icon">💰</div>
+          <div class="dash-card-label">Monthly Income</div>
+          <div class="dash-card-value" id="income-display">₹0</div>
+          <div class="dash-trend positive" id="income-trend" aria-label="Income sources">Set your monthly income</div>
+          <div class="income-input-group">
+            <div class="income-input-wrap">
+              <span class="income-rupee">₹</span>
+              <input type="number" id="income-input" class="income-field" placeholder="e.g. 18000" min="0"
+                aria-label="Monthly income in rupees" />
+            </div>
+            <select id="income-source" class="income-source-select" aria-label="Income source">
+              <option value="stipend">🎓 Stipend</option>
+              <option value="freelance">💻 Freelance</option>
+              <option value="parttime">🏪 Part-time Job</option>
+              <option value="allowance">👨‍👩‍👧 Family Allowance</option>
+              <option value="scholarship">🏅 Scholarship</option>
+              <option value="other">📦 Other</option>
+            </select>
+            <button class="btn-save-income" id="btn-save-income" aria-label="Save monthly income">Save Income</button>
+          </div>
+        </div>
+
+        <!-- Expenses Card -->
+        <div class="dash-card expense-card" id="expense-card" role="article" aria-label="Monthly Expenses">
+          <div class="dash-card-icon">🛒</div>
+          <div class="dash-card-label">Monthly Expenses</div>
+          <div class="dash-card-value">₹5,550</div>
+          <div class="dash-trend negative" aria-label="8% over budget">↑ 8% over budget</div>
+        </div>
+
+        <!-- Savings Goal Card (editable) -->
+        <div class="dash-card savings-card" id="savings-card" role="article" aria-label="Savings Goal">
+          <div class="dash-card-icon">🎯</div>
+          <div class="dash-card-label">Savings Goal</div>
+          <div class="dash-card-value" id="savings-goal-display">₹3,000</div>
+          <div class="savings-input-group">
+            <input type="number" id="savings-target-input" placeholder="Goal (₹)" />
+            <input type="date" id="savings-date-input" />
+            <button id="btn-save-savings">Set</button>
+          </div>
+          <div class="savings-ring-wrap" aria-hidden="true">
+            <svg class="savings-ring" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="24" class="ring-bg" />
+              <circle cx="30" cy="30" r="24" class="ring-fill" id="savings-ring-fill" />
+            </svg>
+            <span class="ring-pct" id="savings-ring-pct">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       EXPENSE TRACKER SECTION
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section tracker-section" id="tracker" aria-labelledby="tracker-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">📋 Tracker</div>
+        <h2 id="tracker-heading" class="section-title">Daily Expense Tracker</h2>
+        <p class="section-sub">Log every transaction in seconds. Categorise, tag, and track with ease.</p>
+      </div>
+
+      <!-- Budget Limit Banner -->
+      <div class="budget-banner" id="budget-banner" role="region" aria-label="Monthly budget limit">
+        <div class="budget-banner-left">
+          <span class="budget-banner-icon" aria-hidden="true">📊</span>
+          <div>
+            <div class="budget-banner-label">Monthly Budget Limit</div>
+            <div class="budget-banner-sub" id="budget-banner-sub">Set a limit to track overspending</div>
+          </div>
+        </div>
+        <div class="budget-banner-right">
+          <div class="budget-input-wrap">
+            <span class="budget-rupee">₹</span>
+            <input type="number" id="budget-limit-input" class="budget-input" placeholder="e.g. 8000" min="0"
+              aria-label="Monthly budget limit in rupees" />
+          </div>
+          <button class="btn-save-budget" id="btn-save-budget" aria-label="Save budget limit">Save Limit</button>
+        </div>
+      </div>
+
+      <div class="tracker-wrapper">
+        <!-- Add Expense Form -->
+        <div class="tracker-form-card" id="tracker-form-card" role="region" aria-label="Add new expense">
+          <h3 class="form-title">+ Add Expense</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expense-name" class="form-label">Expense Name</label>
+              <input type="text" id="expense-name" class="form-input" placeholder="e.g. Canteen Lunch"
+                aria-label="Expense name" />
+            </div>
+            <div class="form-group">
+              <label for="expense-amount" class="form-label">Amount (₹)</label>
+              <input type="number" id="expense-amount" class="form-input" placeholder="0.00" min="0"
+                aria-label="Expense amount in rupees" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expense-category" class="form-label">Category</label>
+              <select id="expense-category" class="form-select" aria-label="Expense category">
+                <option value="food">🍕 Food & Drinks</option>
+                <option value="transport">🚌 Transport</option>
+                <option value="study">📚 Study Materials</option>
+                <option value="entertainment">🎬 Entertainment</option>
+                <option value="health">💊 Health</option>
+                <option value="shopping">🛍️ Shopping</option>
+                <option value="other">📦 Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="expense-date" class="form-label">Date</label>
+              <input type="date" id="expense-date" class="form-input" aria-label="Expense date" />
+            </div>
+          </div>
+          <button class="btn-add-expense" id="btn-add-expense" aria-label="Add this expense">Add Expense</button>
+        </div>
+
+        <!-- Expense List -->
+        <div class="expense-list-card" id="expense-list-card" role="region" aria-label="Recent expenses">
+          <div class="expense-list-header">
+            <h3 class="form-title">Recent Expenses</h3>
+            <span class="expense-count" id="expense-count">7 items</span>
+          </div>
+          <div class="export-bar" role="group" aria-label="Export options">
+            <button class="btn-export btn-csv" id="btn-export-csv" aria-label="Download expenses as CSV">⬇ CSV</button>
+            <button class="btn-export btn-pdf" id="btn-export-pdf" aria-label="Download expenses as PDF">⬇ PDF</button>
+            <button class="btn-export btn-clear" id="btn-clear-all" aria-label="Clear all expenses">🗑 Clear
+              All</button>
+          </div>
+          <ul class="expense-list" id="expense-list" role="list" aria-label="List of recent expenses">
+            <!-- JS injected -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       ANALYTICS SECTION
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section analytics-section" id="analytics" aria-labelledby="analytics-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">📈 Analytics</div>
+        <h2 id="analytics-heading" class="section-title">Spending Analytics</h2>
+        <p class="section-sub">Understand your habits, spot overspending, and optimise your budget intelligently.</p>
+      </div>
+
+      <div class="analytics-grid">
+        <!-- Category Breakdown -->
+        <div class="analytics-card breakdown-card" id="breakdown-card" role="region" aria-label="Spending by category">
+          <h3 class="analytics-card-title">Spending by Category</h3>
+          <div class="category-bars" id="category-bars" aria-label="Category spending bars">
+            <!-- JS injected -->
+          </div>
+        </div>
+
+        <!-- Weekly Spend Chart -->
+        <div class="analytics-card weekly-card" id="weekly-card" role="region" aria-label="Weekly spending trend">
+          <h3 class="analytics-card-title">Weekly Trend</h3>
+          <div class="weekly-chart" id="weekly-chart" aria-label="Weekly expense bars">
+            <!-- JS injected -->
+          </div>
+          <div class="weekly-labels" id="weekly-labels" aria-hidden="true">
+            <!-- JS injected -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       TIPS SECTION
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section tips-section" id="tips" aria-labelledby="tips-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💡 Smart Tips</div>
+        <h2 id="tips-heading" class="section-title">Money-Saving Tips for Students</h2>
+        <p class="section-sub">Actionable advice to stretch every rupee further without sacrificing your lifestyle.</p>
+      </div>
+
+      <div class="tips-grid" id="tips-grid" role="list" aria-label="Money-saving tips">
+        <!-- JS injected -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       FOOTER
+  ─────────────────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">💸</span>
+        <span class="logo-text">Budget<span class="logo-accent">Buddy</span></span>
+      </div>
+      <p class="footer-copy">© 2026 BudgetBuddy · Built with ❤️ for students everywhere</p>
+      <div class="footer-links">
+        <a href="#hero" class="footer-link" id="f-home">Home</a>
+        <a href="#tracker" class="footer-link" id="f-tracker">Tracker</a>
+        <a href="#analytics" class="footer-link" id="f-analytics">Analytics</a>
+      </div>
+    </div>
+    <div class="footer-bottom-divider"></div>
+    <div class="container footer-bottom">
+      <p class="footer-project">Web development internship project</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
